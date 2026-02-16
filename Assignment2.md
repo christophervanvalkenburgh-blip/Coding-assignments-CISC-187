@@ -115,8 +115,7 @@ int randomizedSearchNoRepetition(vector<int> data, int key)
         indices[i] = i;
     }
 
-    // Shuffle indices using simple randomness
-    random_device rd; //declare random number generator
+    random_device rd; //declare random number generator for shuffling random indexes
 
     for (int i = n - 1; i > 0; i--) {
         int j = rd() % (i + 1);  // assign j with random index
