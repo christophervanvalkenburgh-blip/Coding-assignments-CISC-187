@@ -76,8 +76,8 @@ Binary search, on the other hand, eliminates half of the remaining elements afte
 We can write code that searches through a list randomly each time by generating a list, shuffling it, and then using this new order to search through the list, ensuring that it is random each time. 
 ### Pseudocode for part 5
 ```Pseudocaode
-n 100000 //total number of elements
-comparison 0 //couting elements checked
+n <- 100000 //total number of elements
+comparison <- 0 //couting elements checked
 
 indices <- new array size of n //create a list of the indices
 for i from 0 to n-1
