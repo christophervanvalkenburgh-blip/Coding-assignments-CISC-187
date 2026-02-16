@@ -142,7 +142,7 @@ int randomizedSearchNoRepetition(vector<int> data, int key)
 
 int main()
 {
-    const int N = 100000; //delclare and initialize constant N vor vector size
+    const int N = 100000; //delclare and initialize constant N for vector size
 
     vector<int> data; //declare vector data and fill with unique values
     for (int i = 1; i <= N; i++) {
