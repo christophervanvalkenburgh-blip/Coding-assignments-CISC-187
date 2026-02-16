@@ -73,7 +73,7 @@ int main() {
 In the above program, the resulted count for linear search for a worst case scenario was 100000 steps, and for the binary search it was 17 steps. This is a clear illustration of the advantage of binary search over linear search. Utilizing linear search examines elements sequentially from the beginning of the array until the value is found. This results in the O(N) notation where N represents the number of elements in the array. In the worst case scenario, either the element is last or it is not included in the array at all, which requires examining every single element. 
 Binary search, on the other hand, eliminates half of the remaining elements after each step, drammatically cutting down on search time. After 1 step, N/2 elements remain, after 4 it's N/4 and so on. So after K steps of N/2^K -> we solve for K which gives us log2(N). The number of comparisons grows logrithmically, so O(log N). 
 ## Part 5
-We can write code that searches through a list randomly each time by generating a vector of data and indexes, shuffling the index vector randomly, and then using this to compare against our data vector. 
+We can write code that searches through a list randomly each time. We start by generating a vector of indexes and then shuffling it using a random number generator to get a new randomized list of indexes. Then you generate a vector of data, and fill it up. Then you compare the element of the data vector at the index element of the index vector at index of i up to N. This ensures that each element is potentially inspected, but utilizing a random sequence, while keeping the index of the loop and the original data the same to output the correct index. 
 ### Pseudocode for part 5
 ```Pseudocaode
 n <- 100000 //total number of elements
@@ -128,7 +128,7 @@ int randomizedSearchNoRepetition(vector<int> data, int key)
     for (int i = 0; i < n; i++) { //for loop which loops through the vector to find key
         comparisons++;
 
-        if (data[indices[i]] == key) { //compare data at the index of randomized indexes with key value
+        if (data[indices[i]] == key) { //compare element of data vector at the randomized index vector element at index i with key value
             cout << "Found at index: " << indices[i] << endl; //output index found
             cout << "Comparisons: " << comparisons << endl; //output total number of comparisons
             return indices[i];
