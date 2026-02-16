@@ -96,7 +96,7 @@ return (indx, comparisons) //key is found, return it's position and number of co
 
 return (-1, comparisons) //return if key not found, number of comparisons
 ```
-Best case scenario is O(N) where O(1). If the first value chosen is our key, it takes one step. On average, we expect to find our value at N/2, where the value is in the middle. This scales proportionally to the size of the array so our average time is O(N). For a worse case, it is also O(N) where n is the total number of elements in the array. Big-O measures growth rate, not exact operational count, so the constant of 1/2 is irrelevant.  
+Best case scenario is O(1). If the first value chosen is our key, it takes one step. On average, we expect to find our value at N/2, where the value is in the middle. This scales proportionally to the size of the array so our average time is O(N). For a worse case, it is also O(N) where n is the total number of elements in the array. Big-O measures growth rate, not exact operational count, so the constant of 1/2 is irrelevant.  
 ### Code for part 5
 ```C++
 #include <vector>
