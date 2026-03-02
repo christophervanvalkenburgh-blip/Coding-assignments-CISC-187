@@ -5,19 +5,19 @@ For an average-case scenario, we expect our element to have to move on average, 
 ## 2.
 Worst case assumes that for ever i we have i number of comparisons and i number of shifts. So we have for each element 2i number of operations. 
 ### a) Starting at i = 1. 
-i = 1, 2(1) = 2
-i = 2, 2(2) = 4
-i = 3, 2(3) = 6
-i = 4, 2(4) = 8
+i = 1, 2(1) = 2  
+i = 2, 2(2) = 4  
+i = 3, 2(3) = 6  
+i = 4, 2(4) = 8  
 Total operations equal 20.
 ### bi) Starting at i = 2
-i = 2, 2(2) = 4
-i = 3, 2(3) = 6
-i = 4, 2(4) = 8
+i = 2, 2(2) = 4  
+i = 3, 2(3) = 6  
+i = 4, 2(4) = 8  
 Total operations equal 18
 ### bii) Starting at i = 3
-i = 3, 2(3) = 6
-i = 4, 2(4) = 8
+i = 3, 2(3) = 6  
+i = 4, 2(4) = 8  
 Total operations equal 14
 ### c) For (b), does the algorithm still sort the entire array? Explain.
 No, it does not. Insertion sort assumes that the elements prior to the i we start at are already sorted. We ignored the lower elements in summing our total operations. So two things can happen. Either they were sorted, in which case our sorting works fine, or they are not, in which case we will end up with everything sorted from our selected element forward. 
@@ -35,4 +35,6 @@ function containsX(string) {
 	}
 	return false; 
 }
+```
 ## Video
+https://youtu.be/oowI49ZP7ks
