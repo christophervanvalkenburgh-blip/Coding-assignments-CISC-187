@@ -1,7 +1,10 @@
 # Assignment 4a
 ## 1. Prove that, under the average-case scenario, the insertion sort has a time complexity of O(N^2). Draw a clear figure and show all the operations clearly.
-For an average-case scenario, we expect our element to have to move on average, about half of the i elements to the left. This would give us i/2. Since big o drops constants, we are left with i number of comparisons. So we run from i = 1 to N - 1. So this is a summation of n to n - 1, or n(n-1). We dropped the half and lower order doesn't cound, so we are left with O(N^2). I spent over an hour trying to figure out how to put this in a visual: 
-[CISC187.pdf](https://github.com/user-attachments/files/25669856/CISC187.pdf)
+For an average-case scenario, we expect our element to have to move on average, about half of the i elements to the left and we expect them to be about half sorted already. Since big o drops constants, we are left with i number of comparisons. So we run from i = 1 to N - 1. So this is a summation of n to n - 1 x 1/2 X 1/2, or n(n-1)/4. We dropped the constant and the N^2 dominates, so we are left with O(N^2).   
+I spent over an hour trying to figure out how to put this in a visual:   
+[CISC187.pdf](https://github.com/user-attachments/files/25669856/CISC187.pdf)  
+I came back to this later and watched some youtube videos. I have modified my diagram to show the steps more clearly than I originally show with a better proof and additional video. I also updated my explanation for the proof above and go over that in the video.   
+[Sort.pdf](https://github.com/user-attachments/files/25676484/Sort.pdf)
 ## 2.
 Worst case assumes that for ever i we have i number of comparisons and i number of shifts. So we have for each element 2i number of operations. 
 ### a) Starting at i = 1. 
@@ -38,3 +41,4 @@ function containsX(string) {
 ```
 ## Video
 https://youtu.be/oowI49ZP7ks
+## Video with updated diagram explanation
