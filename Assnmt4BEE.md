@@ -95,11 +95,6 @@ int main() {
         cout << "Insertion Sort" << endl;
         insertionSort(arr);
     }
-    //comment in to output vector for verification purposes
-    //cout << "Output:" << endl;
-    //for (int i =0; i < arr.size(); i++) {
-    //    cout << arr[i] << " ";
-    //}
 
     return 0;
 }
