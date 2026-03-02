@@ -42,3 +42,4 @@ function containsX(string) {
 ## Video
 https://youtu.be/oowI49ZP7ks
 ## Video with updated diagram explanation
+https://youtu.be/7dbgJYm4Nr4
