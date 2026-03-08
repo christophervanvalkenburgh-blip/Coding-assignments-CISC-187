@@ -218,8 +218,8 @@ int main() {
     for (int i = 0; i < N; i++) {
         ht.insert(randomStrings[i], i + 100);
     }
-    // print out all the required stats
-    cout << "TEST" << endl;
+    // print out all the required stats for part 5 test
+    cout << "\n===TEST===" << endl;
     cout << "Table capacity: " << ht.getCapacity() << endl;
     cout << "Number of elements: " << ht.size() << endl;
     cout << "load factor: " << fixed << setprecision(2) << ht.loadFactor() << endl;
