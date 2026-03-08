@@ -245,7 +245,7 @@ int main() {
 ## Written Analysis
 Prior to implementing these methods, I expected random to produce the fewest collisions, bucket size, and average length. I found that my random ended up with the highest collisions, and my sequential and prefix produced zero collisions in the final table with the shortest length and smallest bucket size. This was concerning to me as these were not the expected results. After further research, I noticed a couple of things. First, we were instructed to insert 100 words. Since words are not really truly random, not like an alphanumeric random string generator, this could result in more collisions than expected. Secondly, we were tasked with resetting the collision counter where appropriate. I took this to mean between rehashings. This results in the sequential and prefix ending up with zero collisions on their final table, as seemingly every value found it's own bucket at the end. 
 
-I wanted to see what would happen if I approched both of these things differently. First, I replaced my 100 words with a random string generator. Second, I added a cumulative total collision counter to my code. Third, our prefix values ended up being identical to sequential, so I changed the prefix to repeated a's to get more collisions. The result of these changes is that my random did reduce collisions, bucket, and length size, but it was still higher than the others. My prefix, with the changes, also separated itself from sequential with more collisions. I still wasn't satisfied with the random results, so after more research, I determined that the starting size of 11 was relatively small. By increasing the hash table size from 11 to 150, then to 1100, and then to 11000, I could see a trend where random would remain the highest of the three until all three types leveled out to basically zero. This suggests that logically, my hash logic is functioning as expected, but for whatever reason this set of data and hash algorithm produces slightly unusual results. 
+I wanted to see what would happen if I approached these things differently. First, I replaced my 100 words with a random string generator. Second, I added a cumulative total collision counter to my code. Third, our prefix values ended up being identical to sequential, so I changed the prefix to repeated a's to get more collisions. The result of these changes is that my random did reduce collisions, bucket, and length size, but it was still higher than the others. My prefix, with the changes, also separated itself from sequential with more collisions. I still wasn't satisfied with the random results, so after more research, I determined that the starting size of 11 was relatively small. By increasing the hash table size from 11 to 150, then to 1100, and then to 11000, I could see a trend where random would remain the highest of the three until all three types leveled out to basically zero. This suggests that logically, my hash logic is functioning as expected, but for whatever reason this set of data and hash algorithm produces slightly unusual results. I included a loop and a set of table values to run the scenario with each starting size to view results all at once.
 
 These obserations are still mostly consistent with expectations. When load factor is high, collisions are more likely because of sharing limited buckets. As the table capacity increases, load factor goes down and the probability of collisions goes down. Once we removed the table size limit, even varied datasets start to resemble uniform hashing which explains why all three datasets produced virtually identical results when the initial size was set to 11000.
 ```C++
@@ -460,15 +460,15 @@ public:
 };
 
 // This function runs all the helper functions to get stats for the hash table
-void runTest(string arr[], int n, string label) {
-    HashTable ht;
+void runTest(string arr[], int n, string label, int tableSize) {
+    HashTable ht(tableSize);
 
     //insert all strings from array into hash table
     for (int i = 0; i < n; i++) {
         ht.insert(arr[i], i);
     }
 
-    cout << "\n=== " << label << " ===" << endl;
+    cout << "\n===" << label << " (Initial Size: " << tableSize << ") ===" << endl;
     cout << "Table capacity: " << ht.getCapacity() << endl;
     cout << "Number of elements: " << ht.size() << endl;
     cout << "load factor: " << fixed << setprecision(2) << ht.loadFactor() << endl;
@@ -481,12 +481,15 @@ void runTest(string arr[], int n, string label) {
 //Part 5 - testing program
 // insert 100 words into a hash table
 int main() {
+
+    int tableSizes[] = {11, 150, 1100, 11000};
+
     const int N = 100;
 
     string randomStrings[N];
 
     // generate 100 random strings
-    for (int i = 1; i < N; i++) {
+    for (int i = 0; i < N; i++) {
         randomStrings[i] = randomString(8);
     }
 
@@ -497,42 +500,23 @@ int main() {
     // build same and sequential keys
     for (int i = 0; i < N; i++) {
         sequentialKeys[i] = "student" + to_string(i + 1);
-
         samePrefixKeys[i] = "aaaaaaaaa" + to_string(i);
     }
 
     // hash table for testing in part 5
     HashTable ht;
 
-    // insert 100 random words
+    // generate 100 random words
     for (int i = 0; i < N; i++) {
         ht.insert(randomStrings[i], i + 100);
     }
-
-    // print out all the required stats
-    cout << "TEST" << endl;
-    cout << "Table capacity: " << ht.getCapacity() << endl;
-    cout << "Number of elements: " << ht.size() << endl;
-    cout << "load factor: " << fixed << setprecision(2) << ht.loadFactor() << endl;
-    cout << "Final table collisions: " << ht.getCollisionCount() << endl;
-    cout << "Total collisions overall: " << ht.getTotalCollisionCount() << endl;
-
-    // search for an existing value and a non existing value
-    cout << "\nSearch tests:" << endl;
-    cout << "Searching for panda: " << ht.search("panda") << endl;
-    cout << "searching for supercalifragilisticexpialidocious: " << ht.search("supercalifragilisticexpialidocious") << endl;
-
-    // remove a couple of items and verify via search they are in fact removed
-    cout << "\nRemove tests:" << endl;
-    cout << "removing panda: " << (ht.remove("panda") ? "Success" : "Failure") << endl;
-    cout << "searching for panda again: " << ht.search("panda") << endl;
-    cout << "Removing ghost: " << (ht.remove("ghost") ? "Success" : "Failure") << endl;
-    cout << "Searching for ghost again: " << ht.search("ghost") << endl;
-
-    // run all the tests for each type of data
-    runTest(randomStrings, N, "Random Strings");
-    runTest(sequentialKeys, N, "Sequential Keys");
-    runTest(samePrefixKeys, N, "Same Prefix Keys");
+    
+    // run tests three times to see differences between starting sizes
+    for (int size : tableSizes) {
+        runTest(randomStrings, N, "Random Strings", size);
+        runTest(sequentialKeys, N, "Sequential Keys", size);
+        runTest(samePrefixKeys, N, "Same Prefix Keys", size);
+    }
 
     return 0;
 }
