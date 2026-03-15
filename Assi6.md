@@ -1,8 +1,8 @@
 # Assignment 6
 ## Using Figure 17 as a model, in the book Data Structures in C++, illustrate the result of each operation in the sequence PUSH(S,4), PUSH(S,1), PUSH(S,3), POP(S), PUSH(S,8), and POP(S) on an initially empty stack S stored in array S[1..6]. 
-
-
+[Part 1](part%201.png)
 ## Using Figure 18 as a model, in the book Data Structures in C++, illustrate the result of each operation in the sequence ENQUEUE(Q,4), ENQUEUE(Q,1), ENQUEUE(Q,3), DEQUEUE(Q), ENQUEUE(Q,8), and DEQUEUE(Q) on an initially empty queue Q stored in array Q[1..6].
+[Part 2](part%202.png)
 ## Rewrite ENQUEUE and DEQUEUE to detect underflow and overflow of a queue. 
 Enqueue: 
 ```
