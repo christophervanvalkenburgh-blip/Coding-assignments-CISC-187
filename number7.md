@@ -19,11 +19,15 @@ int main()
     // display full stack
     s.display();
 
+    cout << endl;
+
     // remove top element (40)
     s.pop();
 
     // print new top
     cout << "Top element: " << s.peek() << endl;
+
+    cout << endl;
 
     // display updated stack
     s.display();
@@ -99,7 +103,7 @@ void Stack::push(int value)
     top = newNode;
 }
 
-// Part 5: Implement pop() - check if empty, store current top, move top down, delete old node
+// Part 5 & Part 10: Implement pop() - check if empty, store current top, move top down, delete old node
 void Stack::pop()
 {
     if (isEmpty())
