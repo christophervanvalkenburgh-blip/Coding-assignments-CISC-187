@@ -1,5 +1,5 @@
 # Linked lists
-Included in the second half of my main are a series of tests to ensure my program is working correctly. Can swap commented mains in order to see program output normally and test if desired. 
+Included below my main program is a commented-out test section I used to verify that the stack was working correctly, including underflow cases. You can swap in the commented text to test if needed.
 ## Main.cpp
 ```
 #include "stack.h"
@@ -96,9 +96,10 @@ void Stack::push(int value)
     top = newNode; // update top to new node
 }
 
-// Part 5 & Part 10: Implement pop() - check if empty, store current top, move top down, delete old node
+// Part 5: implement pop() - remove top node
 void Stack::pop()
 {
+    // Part 10: stack underflow
     if (isEmpty())
     {
         cout << "Stack Underflow" << endl;
