@@ -223,3 +223,5 @@ void Stack::display()
     }
 }
 ```
+## Reflection Questions
+[View Answers](https://github.com/christophervanvalkenburgh-blip/Coding-assignments-CISC-187/blob/main/READMElab7.md)
