@@ -151,77 +151,36 @@ void Stack::display()
 ```
 ## Stack.h
 ```
-#include "stack.h"
+#ifndef STACK_H
+#define STACK_H
 
-// Part 3: Implement the Constructor - initializes the stack as empty
-Stack::Stack()
+#include <iostream>
+using namespace std;
+
+// Part 1: This struct represents a single node in the linked list
+struct Node
 {
-    top = nullptr;
-}
+    int data;
+    Node* next;
+};
 
-// Part 4: Implement push() - create new node, point it to current top, update top
-void Stack::push(int value)
+// Part 2: Stack implemented using a linked list
+class Stack
 {
-    Node* newNode = new Node; // create node
-    newNode->data = value;    // assign value
+private:
+    Node* top; // pointer to the top of the stack
 
-    newNode->next = top; // new node points to old top
+public:
+    Stack();           // constructor
 
-    top = newNode; // update top to new node
-}
+    void push(int value);  // add element to top
+    void pop();            // remove top element
+    int peek();            // view top element
+    bool isEmpty();        // check if empty
+    void display();        // print stack
+};
 
-// Part 5: Implement pop() - check if empty, store current top, move top down, delete old node
-void Stack::pop()
-{
-    if (isEmpty())
-    {
-        cout << "Stack Underflow" << endl;
-        return;
-    }
-
-    Node* temp = top;    // store current top
-    top = top->next;     // move top to next node
-    delete temp;         // free memory
-}
-
-// Part 6: Implement peek() - returns value at top without removing it
-int Stack::peek()
-{
-    if (isEmpty())
-    {
-        cout << "Stack is empty" << endl;
-        return -1;
-    }
-
-    return top->data; //return value
-}
-
-// Part 7: Implement isEmpty() - returns true if stack is empty
-bool Stack::isEmpty()
-{
-    return top == nullptr;
-}
-
-// Part 8: Implement display() - prints stack from top to bottom
-void Stack::display()
-{
-    if (isEmpty())
-    {
-        cout << "Stack is empty" << endl;
-        return;
-    }
-
-    cout << "Stack elements:" << endl;
-
-    Node* current = top; // use temp pointer so top doesn't get messed up
-
-    // move through entire stack
-    while (current != nullptr)
-    {
-        cout << current->data << endl;
-        current = current->next;
-    }
-}
+#endif
 ```
 ## Reflection Questions
 [View Answers](https://github.com/christophervanvalkenburgh-blip/Coding-assignments-CISC-187/blob/main/READMElab7.md)
