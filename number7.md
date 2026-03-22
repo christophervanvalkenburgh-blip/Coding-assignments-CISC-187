@@ -10,27 +10,23 @@ int main()
 
     Stack s; // create stack
 
-    // push values
     s.push(10);
     s.push(20);
     s.push(30);
     s.push(40);
-
-    // display full stack
-    s.display();
-
-    cout << endl;
-
-    // remove top element (40)
-    s.pop();
-
-    // print new top
-    cout << "Top element: " << s.peek() << endl;
+    
+    s.display(); // display full stack
 
     cout << endl;
 
-    // display updated stack
-    s.display();
+    s.pop(); // remove top element (40)
+
+    cout << "Top element: " << s.peek() << endl;  // print new top
+
+    cout << endl;
+
+    
+    s.display(); // display updated stack
 
     return 0;
 }
@@ -47,7 +43,6 @@ int main()
 //     cout << "\nTesting peek on empty stack:" << endl;
 //     cout << s.peek() << endl;
 //
-//     // Normal pushes
 //     s.push(10);
 //     s.push(20);
 //     s.push(30);
@@ -96,11 +91,9 @@ void Stack::push(int value)
     Node* newNode = new Node; // create node
     newNode->data = value;    // assign value
 
-    // new node points to old top
-    newNode->next = top;
+    newNode->next = top; // new node points to old top
 
-    // update top to new node
-    top = newNode;
+    top = newNode; // update top to new node
 }
 
 // Part 5 & Part 10: Implement pop() - check if empty, store current top, move top down, delete old node
@@ -126,7 +119,7 @@ int Stack::peek()
         return -1;
     }
 
-    return top->data;
+    return top->data; //return value
 }
 
 // Part 7: Implement isEmpty() - returns true if stack is empty
@@ -146,8 +139,7 @@ void Stack::display()
 
     cout << "Stack elements:" << endl;
 
-    // use temp pointer so top doesn't get messed up
-    Node* current = top;
+    Node* current = top; // use temp pointer so top doesn't get messed up
 
     // move through entire stack
     while (current != nullptr)
@@ -173,11 +165,9 @@ void Stack::push(int value)
     Node* newNode = new Node; // create node
     newNode->data = value;    // assign value
 
-    // new node points to old top
-    newNode->next = top;
+    newNode->next = top; // new node points to old top
 
-    // update top to new node
-    top = newNode;
+    top = newNode; // update top to new node
 }
 
 // Part 5: Implement pop() - check if empty, store current top, move top down, delete old node
@@ -203,7 +193,7 @@ int Stack::peek()
         return -1;
     }
 
-    return top->data;
+    return top->data; //return value
 }
 
 // Part 7: Implement isEmpty() - returns true if stack is empty
@@ -223,8 +213,7 @@ void Stack::display()
 
     cout << "Stack elements:" << endl;
 
-    // use temp pointer so top doesn't get messed up
-    Node* current = top;
+    Node* current = top; // use temp pointer so top doesn't get messed up
 
     // move through entire stack
     while (current != nullptr)
