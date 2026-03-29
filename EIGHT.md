@@ -34,7 +34,7 @@ struct Node
         right = nullptr;
     }
 };
-
+```
 class BST
 {
 private:
