@@ -16,6 +16,8 @@ while current.right is not null
 
 return current.data
 ```
+## Write a code in C++ using the same array mentioned in #1 and implement a binary search tree. Only insertion operation is required.
+```
 #include <iostream>
 using namespace std;
 
