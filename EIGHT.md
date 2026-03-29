@@ -4,6 +4,7 @@
 ## If a well-balanced binary search tree contains 1,000 values, what is the maximum number of steps it would take to search for a value within it?
 A well balanced BST has a search time of log2N. So the max steps here would be log2(1000) which is 9.97 steps. 
 ## Write an algorithm that finds the greatest value within a binary search tree. 
+Code or pseudocode was not stated so I went with pseudocode for this question.
 ```
 Algorithm FindGreatest(root)
   if root is null
@@ -16,7 +17,7 @@ while current.right is not null
 
 return current.data
 ```
-## Write a code in C++ using the same array mentioned in #1 and implement a binary search tree. Only insertion operation is required.
+## Write a code in C++ using the same array mentioned in #1 and implement a binary search tree. Only insertion operation is required. 
 I left in my testing commented out again.
 ```
 #include <iostream>
