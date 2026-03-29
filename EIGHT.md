@@ -35,6 +35,25 @@ struct Node
     }
 };
 ```
+#include <iostream>
+using namespace std;
+
+// Node structure
+struct Node
+{
+    int data;
+    Node* left;
+    Node* right;
+
+    // node constructor
+    Node(int value)
+    {
+        data = value;
+        left = nullptr;
+        right = nullptr;
+    }
+};
+
 class BST
 {
 private:
@@ -65,16 +84,16 @@ private:
     }
 
     // inorder traversal to test BST
-    /* void inorder(Node* node)
-    {
-        if (node != nullptr)
-        {
-            inorder(node->left);          // visit left subtree
-            cout << node->data << " ";    // visit current node
-            inorder(node->right);         // visit right subtree
-        }
-    }
-    */
+    // void inorder(Node* node)
+    // {
+    //     if (node != nullptr)
+    //     {
+    //         inorder(node->left);          // visit left subtree
+    //         cout << node->data << " ";    // visit current node
+    //         inorder(node->right);         // visit right subtree
+    //     }
+    // }
+
 
 public:
     BST()
@@ -89,11 +108,11 @@ public:
     }
 
     // show tree in order, to test
-    /*void displayInorder()
-    {
-        inorder(root);
-        cout << endl;
-    }*/
+    //void displayInorder()
+    //{
+    //    inorder(root);
+    //    cout << endl;
+    //}
 };
 
 int main()
@@ -110,12 +129,10 @@ int main()
         tree.insert(arr[i]);
     }
 
-    // testing
-    /*
-    cout << "Inorder traversal: ";
-    tree.displayInorder();
-    */
-
-    return 0;
+    // more testing
+    // cout << "Inorder traversal: ";
+    // tree.displayInorder();
+    //
+    // return 0;
 }
 ```
