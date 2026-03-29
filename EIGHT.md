@@ -34,25 +34,6 @@ struct Node
         right = nullptr;
     }
 };
-```
-#include <iostream>
-using namespace std;
-
-// Node structure
-struct Node
-{
-    int data;
-    Node* left;
-    Node* right;
-
-    // node constructor
-    Node(int value)
-    {
-        data = value;
-        left = nullptr;
-        right = nullptr;
-    }
-};
 
 class BST
 {
