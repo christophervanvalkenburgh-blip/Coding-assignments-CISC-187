@@ -112,3 +112,6 @@ int main() {
 }
 ```
 ## Part 3
+### Compare both search algorithms in the context of Big O notations.
+DFS and BFS actually have the same time complexity in big O of O(V + E) while using an adjacency list, which is what I used in my assignment. If they were to use a matrix instead, the time complexity would be O(V^2). V being the number of verticies and E being the number of edges. Both searches have to go through the graph by visiting each vertex and checking each edge with the adjacency list. This results in the time complexity of O(V + E). However, the difference between the two isn't in their Big O notation, it's the way they move through the graph. BFS searches each level by level using a queue. DFS goes as deep as possible before backtracking. So while they do have the same search complexity, they do have different use cases. For example, if you wanted to see the fewest flights from SEA to DFW on my graph, BFS is better. If you wanted to fully explore everywhere, DFS is better. 
+
