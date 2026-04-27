@@ -10,7 +10,7 @@ Home -> Store = 4 <br>
 Home -> School = 7 <br>
 School -> Store = -6
 
-Dijkstra's algorithm attempts to find the shortest path from the starting vertex to each of the others. First, it checks the edges between home and each of the vertices school and store. Home to store has a weight of 4, home to school has weight of 7. The shortest path from home to store is now finalized with a distance of 4. However, when it starts checking the edges of school, it finds that school to store has a path of -6. This means that the shortest path is now: 
+Dijkstra's algorithm attempts to find the shortest path from the starting vertex to each of the others. First, it checks the edges between home and each of the vertices school and store. Home to store has a weight of 4, home to school has weight of 7. The shortest path from home to store is now finalized with a distance of 4. However, when it starts checking the edges of school, it finds that school to store has an edge weight of -6. This means that the shortest path is now: 
 
 Home -> (7) School -> (-6) Store 
 
