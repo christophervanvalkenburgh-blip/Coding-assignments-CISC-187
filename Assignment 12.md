@@ -11,7 +11,7 @@ The function will never reach n == 1. Subtracting 2 each time results in us reac
 ### Add base case to fix given code
 ``` C++
 int sum(int low, int high) {
-  if (low == high) { \\this was the missing base case
+  if (low == high) { //this was the missing base case
     return low;
   }
 
