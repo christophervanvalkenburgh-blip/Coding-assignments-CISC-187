@@ -30,7 +30,7 @@ using namespace std;
 void printNumbers(const string& array, int& index) {
     while (index < array.length()) { // keep scanning the string while index is still in the string
         if (isdigit(array[index])) { // check current character at index for digits
-            // print every digit in each of the nubmers at index, only numbers
+            // print every digit in the current nubmer until non digit reached
             while (index < array.length() && isdigit(array[index])) {
                 cout << array[index];
                 index++;
