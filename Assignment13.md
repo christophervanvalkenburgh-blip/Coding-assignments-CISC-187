@@ -6,18 +6,17 @@ O(N): This function creates a new array newArray, and then loops through the ori
 ## Task 3: Create a new function to reverse an array that takes up just O(1) extra space.
 ``` C++
 function reverseInPlace(array) {
-    let left = 0; // starts at the beginning of the array
-    let right = array.length - 1; // starts at the end of the array
+    let left = 0;
+    let right = array.length - 1;
 
     // keep swapping values until the two sides meet in the middle
     while (left < right) {
-        let temp = array[left]; // temporarily save the left value
+        let temp = array[left]; 
+        array[left] = array[right]; 
+        array[right] = temp; 
 
-        array[left] = array[right]; // move the right value to the left side
-        array[right] = temp; // move the saved left value to the right side
-
-        left++; // move one spot to the right
-        right--; // move one spot to the left
+        left++; 
+        right--; 
     }
 
     return array;
